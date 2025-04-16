@@ -195,6 +195,7 @@ const Hero = () => {
   }, []);
 
   return (
+    <section id="home">
     <div className="relative min-h-screen overflow-hidden bg-[#000]">
       {/* Animated background elements */}
       <div className="absolute inset-0 w-full h-full">
@@ -254,6 +255,7 @@ const Hero = () => {
         </div>
       </div>
     </div>
+    </section>
   );
 };
 

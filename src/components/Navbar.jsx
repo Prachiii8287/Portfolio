@@ -533,10 +533,10 @@ import { Menu, X } from "lucide-react";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState("about");
+  const [activeSection, setActiveSection] = useState("home");
 
   useEffect(() => {
-    const sections = ['about', 'skills', 'projects', 'achievements']; // ✅ Moved here
+    const sections = ['home','about', 'skills', 'projects', 'achievements']; // ✅ Moved here
 
     const handleScroll = () => {
       const scrollPosition = window.scrollY + 100;
@@ -568,6 +568,7 @@ const Navbar = () => {
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
   const navItems = [
+    {name:"Home",id:"home"},
     { name: "About", id: "about" },
     { name: "Skills", id: "skills" },
     { name: "Projects", id: "projects" },
@@ -593,9 +594,9 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <a
-            href="#about"
+            href="#home"
             className="flex-shrink-0 text-2xl font-bold text-white font-mono tracking-wider hover:text-gray-300 transition-colors"
-            onClick={(e) => handleNavClick('about', e)}
+            onClick={(e) => handleNavClick('home', e)}
           >
             {"{ PS }"}
           </a>

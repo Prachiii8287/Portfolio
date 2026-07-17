@@ -528,6 +528,134 @@
 // export default Navbar;
 
 ////6
+// import { useState, useEffect } from "react";
+// import { Menu, X } from "lucide-react";
+
+// const Navbar = () => {
+//   const [isMenuOpen, setIsMenuOpen] = useState(false);
+//   const [activeSection, setActiveSection] = useState("home");
+
+//   useEffect(() => {
+//     const sections = ['home','about', 'skills', 'projects', 'achievements']; // ✅ Moved here
+
+//     const handleScroll = () => {
+//       const scrollPosition = window.scrollY + 100;
+
+//       for (const section of sections) {
+//         const element = document.getElementById(section);
+//         if (element) {
+//           const offsetTop = element.offsetTop;
+//           const offsetHeight = element.offsetHeight;
+
+//           if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
+//             setActiveSection(section);
+//             window.history.replaceState(null, null, `#${section}`);
+//             break;
+//           }
+//         }
+//       }
+//     };
+
+//     const initialHash = window.location.hash.replace('#', '');
+//     if (initialHash && sections.includes(initialHash)) {
+//       setActiveSection(initialHash);
+//     }
+
+//     window.addEventListener('scroll', handleScroll);
+//     return () => window.removeEventListener('scroll', handleScroll);
+//   }, []);
+
+//   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+
+//   const navItems = [
+//     {name:"Home",id:"home"},
+//     { name: "About", id: "about" },
+//     { name: "Skills", id: "skills" },
+//     { name: "Projects", id: "projects" },
+//     { name: "Achievements", id: "achievements" }
+//   ];
+
+//   const handleNavClick = (id, e) => {
+//     e.preventDefault();
+//     const element = document.getElementById(id);
+//     if (element) {
+//       setActiveSection(id);
+//       setIsMenuOpen(false);
+//       element.scrollIntoView({
+//         behavior: "smooth",
+//         block: "start"
+//       });
+//       window.history.replaceState(null, null, `#${id}`);
+//     }
+//   };
+
+//   return (
+//     <nav className="fixed top-0 left-0 right-0 z-50 bg-black shadow-md">
+//       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+//         <div className="flex items-center justify-between h-16">
+//           <a
+//             href="#home"
+//             className="flex-shrink-0 text-2xl font-bold text-white font-mono tracking-wider hover:text-gray-300 transition-colors"
+//             onClick={(e) => handleNavClick('home', e)}
+//           >
+//             {"{ PS }"}
+//           </a>
+
+//           {/* Desktop Navigation */}
+//           <div className="hidden md:block">
+//             <div className="ml-10 flex items-center space-x-8">
+//               {navItems.map((item) => (
+//                 <a
+//                   key={item.id}
+//                   href={`#${item.id}`}
+//                   onClick={(e) => handleNavClick(item.id, e)}
+//                   className={`text-white hover:text-gray-300 transition-colors duration-200 text-sm tracking-wide ${
+//                     activeSection === item.id ? "border-b-2 border-white" : ""
+//                   }`}
+//                 >
+//                   {item.name}
+//                 </a>
+//               ))}
+//             </div>
+//           </div>
+
+//           {/* Mobile Menu Button */}
+//           <div className="md:hidden">
+//             <button
+//               onClick={toggleMenu}
+//               className="text-white hover:text-gray-300 focus:outline-none"
+//               aria-label="Toggle menu"
+//             >
+//               {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+//             </button>
+//           </div>
+//         </div>
+//       </div>
+
+//       {/* Mobile Menu */}
+//       {isMenuOpen && (
+//         <div className="md:hidden bg-black shadow-lg">
+//           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+//             {navItems.map((item) => (
+//               <a
+//                 key={item.id}
+//                 href={`#${item.id}`}
+//                 onClick={(e) => handleNavClick(item.id, e)}
+//                 className={`block w-full text-left px-3 py-2 rounded-md text-base font-medium ${
+//                   activeSection === item.id ? "text-white bg-gray-800" : "text-white hover:bg-gray-700"
+//                 }`}
+//               >
+//                 {item.name}
+//               </a>
+//             ))}
+//           </div>
+//         </div>
+//       )}
+//     </nav>
+//   );
+// };
+
+// export default Navbar;
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 
@@ -536,7 +664,7 @@ const Navbar = () => {
   const [activeSection, setActiveSection] = useState("home");
 
   useEffect(() => {
-    const sections = ['home','about', 'skills', 'projects', 'achievements']; // ✅ Moved here
+    const sections = ['home', 'about', 'experience', 'skills', 'projects', 'achievements'];
 
     const handleScroll = () => {
       const scrollPosition = window.scrollY + 100;
@@ -568,8 +696,9 @@ const Navbar = () => {
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
   const navItems = [
-    {name:"Home",id:"home"},
+    { name: "Home", id: "home" },
     { name: "About", id: "about" },
+    { name: "Experience", id: "experience" },
     { name: "Skills", id: "skills" },
     { name: "Projects", id: "projects" },
     { name: "Achievements", id: "achievements" }
